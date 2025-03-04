@@ -34,4 +34,4 @@ RUN envsubst < appserver_base.ini > appserver.ini
 RUN /bin/sh
 
 # Comando padrão para executar quando o container iniciar
-CMD ["./appsrvlinux"]
+CMD ["sh", "-c", "envsubst < appserver_base.ini > appserver.ini && ./appsrvlinux"]
