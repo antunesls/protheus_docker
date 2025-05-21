@@ -5,6 +5,7 @@ FROM opensuse/leap:15.6
 RUN zypper refresh && zypper install -y \
     bash \
     curl \
+    dmidecode \
     gettext
 
 # Crie as pastas /totvs/protheus/apo
