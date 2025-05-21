@@ -62,3 +62,6 @@ docker run -d   --name protheus_testes   -e SPECIAL_KEY=testes   -e ENV_APP=TOTV
 
 - Certifique-se de que as portas 1234 e 4321 estejam livres para uso no host.
 - Todos os volumes montados devem conter os arquivos corretos para execução do Protheus.
+
+
+sudo docker build -t protheus_linux_24_3_0_4 . --no-cache
