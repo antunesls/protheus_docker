@@ -1,4 +1,3 @@
-
 # 🐳 Protheus Docker - Ambientes de Desenvolvimento
 
 Este repositório contém instruções para inicialização e execução de containers Docker com ambientes Protheus configurados individualmente para diferentes finalidades.
@@ -29,6 +28,14 @@ docker run -d   --name protheus_base_gabriel   -e SPECIAL_KEY=base_gabriel   -e 
 
 ```bash
 docker run -d   --name protheus_bosform   -e SPECIAL_KEY=bosform   -e ENV_APP=TOTVS   -e NAME_APP=bosform   -e DB_HOST=professorx.insider.testes   -e DB_ALIAS=bosform   -e LICENSE_SERVER=professorx.insider.testes   -e LICENSE_PORT=5555   -v /home/antunesls/ambientes/bosform/data:/totvs/protheus_data   -v /home/antunesls/ambientes/bosform/apo:/totvs/protheus/apo   -p 9191:1234   -p 9192:4321   protheus_linux_24_3_0_4
+```
+
+---
+
+### 🔹 Ambiente: `totvsls`
+
+```bash
+sudo docker run -d --name totvsls -p 5555:5555 -p 8020:8020  --ulimit core=-1   --privileged  protheus_linux_totvsls
 ```
 
 ---
