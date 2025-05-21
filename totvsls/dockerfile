@@ -1,0 +1,26 @@
+# Use a imagem base Alpine, última versão estável
+FROM opensuse/leap:15.6
+
+# Atualize o repositório de pacotes e instale pacotes essenciais
+RUN zypper refresh && zypper install -y \
+    bash \
+    curl \
+    dmidecode \
+    gettext
+#/totvs/totvslicensevirtual
+# Crie as pastas /totvs/protheus/apo
+RUN mkdir /totvs
+
+# Copie os arquivos da pasta bin para dentro da pasta /totvs/protheus/bin
+COPY totvsls /totvs/totvslicensevirtual
+
+# Permitir execução do arquivo appsrvlinux
+RUN chmod +x /totvs/totvslicensevirtual/bin/appserver/appsrvlinux
+
+# Defina o diretório de trabalho
+WORKDIR /totvs/totvslicensevirtual/bin/appserver
+
+RUN /bin/sh
+
+# Comando padrão para executar quando o container iniciar
+CMD ["sh", "-c", "./appsrvlinux"]
